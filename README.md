@@ -6,11 +6,11 @@
 
 ## Feature 1:
 
-Create a permissionless `create_mint_and_vault(amount_to_mint: u64)` instruction that creates a new SPL-token and mints the given number of tokens to a PDA address for later release via the `request_tokens` instruction. 
+Create a permissionless `init_mint_and_vault(amount_to_mint: u64)` instruction that initializes a new SPL-token and mints the given number of tokens to a PDA address for later release via the `request_tokens` instruction. 
 
 ### Optional: 
 
-Have a way to limit the number of times the `create_mint_and_vault(...)` instruction can be called from a single user, ie a single user's wallet can only call this twice forever.  
+Have a way to limit the number of times the `init_mint_and_vault(...)` instruction can be called from a single user, ie a single user's wallet can only call this twice forever.  
 
 ## Feature 2: 
 

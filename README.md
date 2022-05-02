@@ -18,3 +18,8 @@ Create a `request_tokens` instruction that will transfer tokens from the PDA to 
 
 Create the instruction so a user's wallet can only call this instruction once per day. 
 
+
+## Contributing 
+
+* Please submit code for review as a PR to this repo
+* Please include tests for all instructions  

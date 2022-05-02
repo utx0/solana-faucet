@@ -1,10 +1,12 @@
 # Solana Faucet 
 
-*Objective*: build a Solana smart contract / program that can can create new mint token accounts and mint tokens to a PDA so users can request tokens for testing on devNet and testNet deployments. 
+*Objective*: Build a Solana smart contract / program that can can create new mint token accounts and mint tokens to a PDA so users can request tokens for testing on devNet and testNet deployments. 
+
+*Purpose*: During the development and testing of defi protocols it is a common practice to use a faucet to get access to test tokens. This faucet will enable users/developers (and a possible frontend at a later date) to create new SPL-token's and store the minted tokens in a PDA that can then get released to users/testers when they require them for testing. 
 
 ## Feature 1:
 
-Create a permissionless `create_mint_and_vault(amount_to_mint: u64)` instruction that creates a new token account and mints the given number of tokens to a PDA address.
+Create a permissionless `create_mint_and_vault(amount_to_mint: u64)` instruction that creates a new SPL-token and mints the given number of tokens to a PDA address for later release via the `request_tokens` instruction. 
 
 ### Optional: 
 

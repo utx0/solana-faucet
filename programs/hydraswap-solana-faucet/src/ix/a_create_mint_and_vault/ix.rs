@@ -57,12 +57,14 @@ pub fn do_create_mint_and_vault(
     )?;
 
     let mint_detail = MintDetails {
-        mint: ctx.accounts.mint.key(),
         last_requested: 0,
         seed: faucet_seed,
         bump: mint_bump,
     };
 
-    ctx.accounts.user_meta.mint_details.push(mint_detail);
+    ctx.accounts
+        .user_meta
+        .mint_details
+        .insert(ctx.accounts.mint.key(), mint_detail);
     Ok(())
 }

@@ -9,8 +9,14 @@ use std::string::String;
 #[derive(Accounts)]
 #[instruction(faucet_seed: String)]
 pub struct CreateMintAndVaultAccounts<'info> {
-    /// bounty account
-    #[account(mut)]
+    // user meta account
+    #[account(
+        init_if_needed,
+        space= 4 + (32 + 5 + 4 * 15 + 8 + 1 ) * 2 ,
+        seeds=[b"user_meta_v0".as_ref(), user.key().as_ref()],
+        bump,
+        payer=user
+    )]
     pub user_meta: Account<'info, UserMeta>,
 
     #[account(mut)]
@@ -31,7 +37,9 @@ pub struct CreateMintAndVaultAccounts<'info> {
     )]
     pub mint: Account<'info, Mint>,
 
-    // vault address
+    // vault address instead of creating it here
+    // and updating the authority later have done it in
+    // the instruction itself
     /// CHECK: it's okay to pass it as is
     #[account(mut)]
     pub vault: AccountInfo<'info>,
